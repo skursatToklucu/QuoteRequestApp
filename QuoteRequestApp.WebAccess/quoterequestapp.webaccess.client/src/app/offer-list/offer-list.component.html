@@ -1,0 +1,26 @@
+<nz-table #offerTable [nzData]="offers" [nzBordered]="true" nzSize="middle">
+  <thead>
+    <tr>
+      <th nzWidth="20%">Mode</th>
+      <th nzWidth="20%">Movement Type</th>
+      <th nzWidth="20%">Incoterms</th>
+      <th nzWidth="20%">Country-City</th>
+      <th nzWidth="20%">Package Type</th>
+      <th nzWidth="20%">Unit-1</th>
+      <th nzWidth="20%">Unit-2</th>
+      <th nzWidth="20%">Currency</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let offer of offers">
+      <td>{{ offer.mode }}</td>
+      <td>{{ offer.movementType }}</td>
+      <td>{{ offer.incoterms }}</td>
+      <td>{{ offer.country }} - {{ offer.city }}</td>
+      <td>{{ offer.packageType }}</td>
+      <td>{{ offer.unit1 }}</td>
+      <td>{{ offer.unit2 }}</td>
+      <td>{{ offer.currency }}</td>
+    </tr>
+  </tbody>
+</nz-table>

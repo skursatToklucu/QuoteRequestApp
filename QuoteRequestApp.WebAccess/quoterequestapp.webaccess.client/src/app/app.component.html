@@ -1,0 +1,29 @@
+<nz-layout>
+  <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" nzWidth="200px" nzTheme="light" *ngIf="authService.isLoggedIn()">
+    <div class="logo"></div>
+    <ul nz-menu nzMode="inline" nzTheme="light">
+      <li nz-menu-item>
+        <a routerLink="/offer">Offer</a>
+      </li>
+      <li nz-menu-item>
+        <a routerLink="/offer-list">Offer List</a>
+      </li>
+      <li nz-menu-item (click)="logout()">
+        <a href="javascript:void(0)">Logout</a>
+      </li>
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-header style="background: #fff; padding: 0;" *ngIf="authService.isLoggedIn()">
+      <button nz-button nzType="default" (click)="isCollapsed = !isCollapsed">
+        <i nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></i>
+      </button>
+    </nz-header>
+    <nz-content style="margin: 24px 16px 0;">
+      <div style="padding: 24px; background: #fff;">
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+    <nz-footer style="text-align: center;">Quote Request App ©2023</nz-footer>
+  </nz-layout>
+</nz-layout>

@@ -1,0 +1,23 @@
+<div>
+  <h2>Login</h2>
+  <form nz-form (ngSubmit)="login()">
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="email" nzRequired>Email</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24">
+        <input nz-input type="email" id="email" [(ngModel)]="credentials.email" name="email" required>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="password" nzRequired>Password</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24">
+        <input nz-input type="password" id="password" [(ngModel)]="credentials.password" name="password" required>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-control [nzSm]="14" [nzXs]="24" [nzOffset]="6">
+        <button nz-button nzType="primary" type="submit">Login</button>
+        <button nz-button nzType="default" (click)="goToRegister()">Register</button>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+</div>

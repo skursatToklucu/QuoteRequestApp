@@ -1,0 +1,101 @@
+<div>
+  <h2>Offer Page</h2>
+  <form nz-form (ngSubmit)="submitOffer()">
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="mode" nzRequired>Mode</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24">
+        <nz-select [(ngModel)]="offer.mode" name="mode" id="mode" required>
+          <nz-option *ngFor="let mode of modes" [nzValue]="mode" [nzLabel]="mode"></nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="movementType" nzRequired>Movement Type</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24">
+        <nz-select [(ngModel)]="offer.movementType" name="movementType" id="movementType" required>
+          <nz-option *ngFor="let movementType of movementTypes" [nzValue]="movementType" [nzLabel]="movementType"></nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="incoterms" nzRequired>Incoterms</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24">
+        <nz-select [(ngModel)]="offer.incoterms" name="incoterms" id="incoterms" required>
+          <nz-option *ngFor="let incoterm of incoterms" [nzValue]="incoterm" [nzLabel]="incoterm"></nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="country" nzRequired>Country</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24">
+        <nz-select [(ngModel)]="offer.country" name="country" id="country" (ngModelChange)="onCountryChange()" required>
+          <nz-option *ngFor="let country of countries" [nzValue]="country" [nzLabel]="country"></nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="city" nzRequired>City</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24">
+        <nz-select [(ngModel)]="offer.city" name="city" id="city" required>
+          <nz-option *ngFor="let city of cities" [nzValue]="city" [nzLabel]="city"></nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="packageType" nzRequired>Package Type</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24">
+        <nz-select [(ngModel)]="offer.packageType" name="packageType" id="packageType" required>
+          <nz-option *ngFor="let packageType of packageTypes" [nzValue]="packageType" [nzLabel]="packageType"></nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="unit1Value" nzRequired>Unit -1</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24">
+        <input nz-input [(ngModel)]="unit1Value" name="unit1Value" type="number" placeholder="Value" required min="1" max="1000">
+        <nz-select [(ngModel)]="unit1Type" name="unit1Type" id="unit1Type" required>
+          <nz-option nzValue="CM" nzLabel="CM"></nz-option>
+          <nz-option nzValue="IN" nzLabel="IN"></nz-option>
+        </nz-select>
+        <div *ngIf="unit1Value < 1 || unit1Value > 1000" class="error-message">
+          Please enter a value between 1 and 1000.
+        </div>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="unit2Value" nzRequired>Unit -2</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24">
+        <input nz-input [(ngModel)]="unit2Value" name="unit2Value" type="number" placeholder="Value" required min="0.1" max="1000">
+        <nz-select [(ngModel)]="unit2Type" name="unit2Type" id="unit2Type" required>
+          <nz-option nzValue="KG" nzLabel="KG"></nz-option>
+          <nz-option nzValue="LB" nzLabel="LB"></nz-option>
+        </nz-select>
+        <div *ngIf="unit2Value < 0.1 || unit2Value > 1000" class="error-message">
+          Please enter a value between 0.1 and 1000.
+        </div>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="currency" nzRequired>Currency</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24">
+        <nz-select [(ngModel)]="offer.currency" name="currency" id="currency" required>
+          <nz-option *ngFor="let currency of currencies" [nzValue]="currency" [nzLabel]="currency"></nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-control [nzSm]="14" [nzXs]="24" [nzOffset]="6">
+        <button nz-button nzType="primary" type="submit">Save</button>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+</div>

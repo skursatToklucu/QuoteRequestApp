@@ -1,0 +1,28 @@
+<div>
+  <h2>Register</h2>
+  <form nz-form (ngSubmit)="register($event)">
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="email" nzRequired>Email</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24">
+        <input nz-input type="email" id="email" [(ngModel)]="user.email" name="email" required>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="password" nzRequired>Password</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24">
+        <input nz-input type="password" id="password" [(ngModel)]="user.password" name="password" required>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="confirmPassword" nzRequired>Confirm Password</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24">
+        <input nz-input type="password" id="confirmPassword" [(ngModel)]="user.confirmPassword" name="confirmPassword" required>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-control [nzSm]="14" [nzXs]="24" [nzOffset]="6">
+        <button nz-button nzType="primary" type="submit">Register</button>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+</div>
