@@ -73,10 +73,8 @@ namespace QuoteRequestApp.Application.Services
             if (pallet.Width <= 0 || pallet.Length <= 0 || pallet.Height <= 0)
                 throw new ArgumentException("Invalid pallet dimensions.");
 
-            // unitLength'i kullanarak gerçek palet genişliği, uzunluğu ve yüksekliğini belirleyin
             double palletArea = pallet.Width * pallet.Length * unitLength;
 
-            // Kutu alanı hesaplanır ve birim kareye düşen palet sayısı belirlenir
             double boxArea = box.Width * box.Length;
             int palletCount = (int)Math.Floor(palletArea / boxArea);
 
